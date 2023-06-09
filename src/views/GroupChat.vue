@@ -84,7 +84,7 @@ const handleClick = () => {
     sender: username,
     message: message.value
   }
-  socket.emit('chat', channel.value, messageRequest)
+  socket.emit('chat', channel.value, JSON.stringify(messageRequest))
   chatList.value.push(messageRequest)
   message.value = ''
   storeChat(channel.value, JSON.stringify(chatList.value))
