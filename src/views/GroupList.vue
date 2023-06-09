@@ -43,7 +43,7 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const groupNameAdd = ref('')
-const groupList = ref([])
+const groupList = ref(['general', 'random'])
 
 onMounted(() => {
   const groupListLS = localStorage.getItem('groupList')
