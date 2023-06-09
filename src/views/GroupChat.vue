@@ -52,11 +52,14 @@ const chatList = ref([])
 const username = localStorage.getItem('username')
 
 const chatToBottom = () => {
-  chatWrapper.value.scrollTop = chatWrapper.value.scrollHeight
+  if (chatWrapper.value) {
+    chatWrapper.value.scrollTop = chatWrapper.value.scrollHeight
+  }
 }
 
 const listener = (...args) => {
   const response = JSON.parse(args[0])
+  console.log(response)
   chatList.value.push(response)
   storeChat(channel.value, JSON.stringify(chatList.value))
   chatToBottom()
